@@ -22,3 +22,15 @@ if duplicate_or_not:
     print(f"The list conatine duplicate values.")
 else:
     print(f"The didn't contain duplicate values.")
+
+#another way to solve this. using hashmap
+class Solution:
+    def avoidDuplication(numbers: list[int])->bool:
+        #here create new memory to check the values are duplicated or not
+        hashSet = set()
+        for value in numbers:
+            if value in hashSet:
+                return True
+            hashSet.add(value)
+        return False
+    #time O(n)  space O(n)
