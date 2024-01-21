@@ -21,5 +21,5 @@ class TwoSum :
 
 val =TwoSum()
 result = val.returnTwoSumIndexSolution2([2,4,5,6,9],10)
-result = val.returnTwoSumInsex([2,4,5,6,9],10)
-print(f'The two_sum index are: {result}')
+result2 = val.returnTwoSumInsex([2,4,5,6,9],10)
+print(f'The two_sum index are: {result}  and {result2}')
