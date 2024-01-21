@@ -10,4 +10,16 @@ class TwoSum :
                 if nums[index] + nums[index2] == target:
                     return [index,index2]
         return
-#but this is leads two O(n^2) so here we try another logic
+#but this is leads to O(n^2) so here we try another logic
+    
+    def returnTwoSumIndexSolution2(self,nums: list[int],target:int):
+        for index in range(len(nums)):
+            temp = target - nums[index]
+            if temp in nums:
+                return [index,nums.index(temp)]
+        return
+
+val =TwoSum()
+result = val.returnTwoSumIndexSolution2([2,4,5,6,9],10)
+result = val.returnTwoSumInsex([2,4,5,6,9],10)
+print(f'The two_sum index are: {result}')
