@@ -1,8 +1,8 @@
-"""
-   we have two  string  here we want to check both string
-     have same letters position in not inportant
-"""
 class Anagram:
+    """
+        we have two  string  here we want to check both string
+        have same letters position in not inportant
+    """
     def findAnagramOrNot(self,str1:str,str2:str)-> bool:
         if len(str1) != len(str2):
             return False
