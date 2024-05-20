@@ -1,39 +1,29 @@
 import operator
 from typing import List
-
-class ReverPolishNotion:
-
-    def calculate(self, values: List[str]) -> int:
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
         operators = {
             '+': operator.add,
             '-': operator.sub,
             '*': operator.mul,
             '/': operator.truediv
 }
-        left_operand=[]
-        right_operand=[]
-        cals=""
-        operator_stat=False
-        for val in values:
+        operand=[]
+        cals=None
+        if len(tokens)==1:
+            return int(tokens[0])
+        for val in tokens:
             try:
                 value=int(val)
-                if not operator_stat:
-                    left_operand.append(value)
-                else:
-                    right_operand.append(value)     
+                operand.append(value)     
             except ValueError:
-                operator_stat=True
-                if right_operand and cals:
-                    cals =operators[val](cals,right_operand.pop())
-                elif left_operand:
-                    if not cals:
-                        val_1=left_operand.pop()
-                        val_2=left_operand.pop()
-                        cals =operators[val](val_2,val_1)
-                    else:
-                        cals =operators[val](left_operand.pop(),cals)
-        return round(cals)
+                val1=operand.pop()
+                val2=operand.pop()
+                cals =int(operators[val](val2,val1))
+                operand.append(cals)
+
+        return cals
             
-tokens=["4","13","5","/","+"]
-result=ReverPolishNotion().calculate(tokens)
+tokens=["2","1","+","3","*"]
+result=ReverPolishNotion().evalRPN(tokens)
 print(result)
