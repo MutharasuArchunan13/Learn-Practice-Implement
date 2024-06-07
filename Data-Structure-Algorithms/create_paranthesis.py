@@ -34,3 +34,6 @@ class Solution:
         return res
         
 Solution().generateParenthesis(2)
+values=[]
+for val in enumerate(values):
+    print(val)
