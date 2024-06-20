@@ -8,10 +8,10 @@ class CarFleet:
     def check_carfleet(self,target:int,positions: List[int],speed_list: List[int]):
         #To compare a car can catch up another car using time
         time_tacking = [(position,(target-position)/speed) for position,speed in zip(positions,speed_list)]
-        sorted_car_position=time_tacking.sort(reverse=True)
+        time_tacking.sort(reverse=True)
         prev_postion=None
         fleet_count=0
-        for position in sorted_car_position:
+        for position in time_tacking:
             if not prev_postion:
                 prev_postion=position[1]
                 fleet_count+=1
