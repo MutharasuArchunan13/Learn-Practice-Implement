@@ -6,19 +6,22 @@ class Solution:
         stack = []
         for index,h in enumerate(heights):
             if not stack:
-               stack.append((len(stack),h))
+               stack.append((index,h))
                previous_hight=h
                continue
             if  h < previous_hight:
                 while(stack):
                    i,hh = stack.pop()
-                   max_area=max(max_area,hh*(i+1))
-            stack.append((len(stack)-1 ,h))
+                   max_area=max(max_area,hh*(index - i))
+            stack.append((index ,h))
             previous_hight=h
         #if not next values not greater than previous value
+        stack.reverse()
         while(stack):
-            i,hh = stack.pop()
-            max_area=max(max_area,hh*(i+1))
+            length=len(stack)
+            i,hh=stack.pop()
+            max_area=max(max_area,hh*(length))
+            
         return max_area
 
 obj = Solution()
