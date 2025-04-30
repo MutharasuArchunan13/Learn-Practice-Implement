@@ -3,18 +3,18 @@ public class FindMinMax {
     /*
      * Create a program that reads 10 integers into an array and finds
      * the maximum and minimum elements without using built-in methods.
+     * 
+     * Time complexity -> O(n)
+     * Space complexity -> O(1)
      */
     int[] numbers = {3,4,23,11,5,8,90,2314,1,2};
-    int min=0;
-    int max=0;
+    int min=numbers[0];
+    int max=numbers[0];
     for(int index = 0;index < numbers.length ;index++){
         int currentValue =numbers[index];
         if (index==0)
-        {
-            min=currentValue;
-            max=currentValue;
             continue;
-        }
+
         if(min > currentValue)
             min = currentValue;
         
